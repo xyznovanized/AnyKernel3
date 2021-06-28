@@ -6,7 +6,7 @@
 properties() { '
 kernel.string=HMP-Perfomance
 kernel.for=Android Q and R 
-kernel.compiler=GCC-10
+kernel.compiler=proton-clang
 kernel.made=@ben863
 kernel.version=4.4.273
 message.word=Suit-Suit... He-He...
