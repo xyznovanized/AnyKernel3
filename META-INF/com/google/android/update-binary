@@ -418,7 +418,7 @@ ui_print "-- Kernel Version : $KERNEL_VERSION";
 ui_print "-- Variant        : $KERNEL_FOR";
 ui_print "-- Compiler       : $KERNEL_COMPILER";
 ui_print "-- Device         : $DEVICE_NAME";
-ui_print "-- Build Date     : $BUILD_DATE";
+ui_print "-- Build Server   : $BUILD_SERVER";
 ui_print "-- Build by       : $KERNEL_MADE";
 ui_print "_________________________________________________" " ";
 if [ -f version ]; then
