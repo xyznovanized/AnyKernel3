@@ -4,7 +4,7 @@
 ## AnyKernel setup
 # begin properties
 properties() { '
-kernel.string=HMP-Perfomance
+kernel.string=ElasticsPerf
 kernel.for=Android Q and R 
 kernel.compiler=CLANG-LLVM
 kernel.made=@ben863
