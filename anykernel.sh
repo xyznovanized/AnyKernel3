@@ -4,13 +4,13 @@
 ## AnyKernel setup
 # begin properties
 properties() { '
-kernel.string=ElasticsPerf
+kernel.string=ElasticsPerf-HMP
 kernel.for=Android Q and R 
 kernel.compiler=CLANG-LLVM
 kernel.made=@ben863
 kernel.version=4.4.274
 message.word=Suit-Suit... He-He...
-build.server=Drone CI
+build.server=LiteSpeed-CloudLinux
 do.devicecheck=1
 do.modules=0
 do.systemless=1
