@@ -6,11 +6,11 @@
 properties() { '
 kernel.string=ElasticsPerf-HMP
 kernel.for=Android Q and R 
-kernel.compiler=CLANG-LLVM
+kernel.compiler=Elastics Toolchain clang 13
 kernel.made=@ben863
-kernel.version=4.4.274
+kernel.version=4.4.275
 message.word=Suit-Suit... He-He...
-build.server=LiteSpeed-CloudLinux
+manufacturer=ASUSTek Computer Inc
 do.devicecheck=1
 do.modules=0
 do.systemless=1
