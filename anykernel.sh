@@ -5,7 +5,7 @@
 # begin properties
 properties() { '
 kernel.string=ElasticsPerf-HMP
-kernel.for=Android Q and R 
+kernel.for=Android P Q and R 
 kernel.compiler=Elastics Toolchain clang 13
 kernel.made=@ben863
 kernel.version=4.4.275
