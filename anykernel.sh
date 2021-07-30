@@ -6,7 +6,7 @@
 properties() { '
 kernel.string=ElasticsPerf-HMP
 kernel.for=Android P Q and R 
-kernel.compiler=Elastics Toolchain clang 13
+kernel.compiler=Elastics clang version 14.0.0 with LLD 14.0.0
 kernel.made=@ben863
 kernel.version=4.4.277
 message.word=Suit-Suit... He-He...
