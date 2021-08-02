@@ -5,7 +5,7 @@
 # begin properties
 properties() { '
 kernel.string=ElasticsPerf-HMP
-kernel.for=Android all version
+kernel.for=Asus Zenfone Max Pro M1
 kernel.compiler=Elastics clang version 14.0.0
 kernel.made=@ben863
 kernel.version=4.4.277
