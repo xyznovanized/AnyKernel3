@@ -5,8 +5,8 @@
 # begin properties
 properties() { '
 kernel.string=ElasticsPerf-HMP
-kernel.for=Android P Q and R 
-kernel.compiler=Elastics clang version 14.0.0 with LLD 14.0.0
+kernel.for=Android all version
+kernel.compiler=Elastics clang version 14.0.0
 kernel.made=@ben863
 kernel.version=4.4.277
 message.word=Suit-Suit... He-He...
@@ -21,7 +21,7 @@ device.name2=X00T
 device.name3=Zenfone Max Pro M1 (X00TD)
 device.name4=ASUS_X00TD
 device.name5=ASUS_X00T
-supported.versions=8.1.0-11.0
+supported.versions=8.1.0-12.0
 supported.patchlevels=
 '; } # end properties
 
@@ -42,12 +42,44 @@ set_perm_recursive 0 0 755 644 $ramdisk/*;
 set_perm_recursive 0 0 750 750 $ramdisk/init* $ramdisk/sbin;
 
 
-## AnyKernel install
+## AnyKernel boot install
 dump_boot;
 
+# begin ramdisk changes
+
+# init.rc
+backup_file init.rc;
+replace_string init.rc "cpuctl cpu,timer_slack" "mount cgroup none /dev/cpuctl cpu" "mount cgroup none /dev/cpuctl cpu,timer_slack";
+
+# init.tuna.rc
+backup_file init.tuna.rc;
+insert_line init.tuna.rc "nodiratime barrier=0" after "mount_all /fstab.tuna" "\tmount ext4 /dev/block/platform/omap/omap_hsmmc.0/by-name/userdata /data remount nosuid nodev noatime nodiratime barrier=0";
+append_file init.tuna.rc "bootscript" init.tuna;
+
+# fstab.tuna
+backup_file fstab.tuna;
+patch_fstab fstab.tuna /system ext4 options "noatime,barrier=1" "noatime,nodiratime,barrier=0";
+patch_fstab fstab.tuna /cache ext4 options "barrier=1" "barrier=0,nomblk_io_submit";
+patch_fstab fstab.tuna /data ext4 options "data=ordered" "nomblk_io_submit,data=writeback";
+append_file fstab.tuna "usbdisk" fstab;
 
 # end ramdisk changes
 
 write_boot;
-## end install
+## end boot install
 
+
+# shell variables
+#block=vendor_boot;
+#is_slot_device=1;
+#ramdisk_compression=auto;
+
+# reset for vendor_boot patching
+#reset_ak;
+
+
+## AnyKernel vendor_boot install
+#split_boot; # skip unpack/repack ramdisk since we don't need vendor_ramdisk access
+
+#flash_boot;
+## end vendor_boot install
