@@ -4,11 +4,11 @@
 ## AnyKernel setup
 # begin properties
 properties() { '
-kernel.string=ElasticsPerf-EAS
-kernel.for=EAS
+kernel.string=ElasticsPerf
+kernel.for=Stable
 kernel.compiler=Elastics clang version 14.0.0
 kernel.made=@ben863
-kernel.version=4.4.277
+kernel.version=4.4.xxx
 message.word=Suit-Suit... He-He...
 manufacturer=ASUSTek Computer Inc
 do.devicecheck=1
