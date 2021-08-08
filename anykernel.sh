@@ -5,7 +5,7 @@
 # begin properties
 properties() { '
 kernel.string=ElasticsPerf
-kernel.for=Stable
+kernel.for=P-WIFI Drivers
 kernel.compiler=Elastics clang version 14.0.0
 kernel.made=@ben863
 kernel.version=4.4.xxx
