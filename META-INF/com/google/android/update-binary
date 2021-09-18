@@ -124,22 +124,21 @@ mount_all() {
       fi;
     ;;
   esac;
+  [ -f /system_root/system/build.prop ] && system=/system;
+  for mount in /vendor /product /system_ext; do
+    if ! is_mounted $mount && [ -L /system$mount -o -L /system_root$system$mount ]; then
+      setup_mountpoint $mount;
+      $BB mount -o ro -t auto /dev/block/$byname$mount$slot $mount;
+    fi;
+  done;
   if is_mounted /system_root; then
     mount_apex;
-    [ -f /system_root/system/build.prop ] && system=/system;
-    for mount in /vendor /product /system_ext; do
-      if ! is_mounted $mount && [ -L /system_root$system$mount ]; then
-        setup_mountpoint $mount;
-        $BB mount -o ro -t auto /dev/block/$byname$mount$slot $mount;
-      fi;
-    done;
-    if ! is_mounted /persist && [ -e /dev/block/bootdevice/by-name/persist ]; then
-      setup_mountpoint /persist;
-      $BB mount -o ro -t auto /dev/block/bootdevice/by-name/persist;
-    fi;
     $BB mount -o bind /system_root$system /system;
   fi;
-  mount_apex;
+  if ! is_mounted /persist && [ -e /dev/block/bootdevice/by-name/persist ]; then
+    setup_mountpoint /persist;
+    $BB mount -o ro -t auto /dev/block/bootdevice/by-name/persist /persist;
+  fi;
 }
 umount_all() {
   (umount_apex;
@@ -179,7 +178,7 @@ setup_env() {
   if [ ! "$(getprop 2>/dev/null)" ]; then
     getprop() {
       local propdir propfile propval;
-      for propdir in / /system_root /system /vendor /odm /product; do
+      for propdir in / /system_root /system /vendor /product /system_ext /odm; do
         for propfile in default.prop build.prop; do
           test "$propval" && break 2 || propval="$(file_getprop $propdir/$propfile $1 2>/dev/null)";
         done;
@@ -200,8 +199,8 @@ restore_env() {
   test "$OLD_LD_PRE" && export LD_PRELOAD=$OLD_LD_PRE;
   test "$OLD_LD_CFG" && export LD_CONFIG_FILE=$OLD_LD_CFG;
   umount_all;
-  test -L /etc_link && $BB rm -rf /etc/*;
-  (for dir in /apex /system /system_root /etc; do
+  [ -L /etc_link ] && $BB rm -rf /etc/*;
+  (for dir in /etc /apex /system_root /system /vendor /product /system_ext /persist; do
     if [ -L "${dir}_link" ]; then
       rmdir $dir;
       $BB mv -f ${dir}_link $dir;
