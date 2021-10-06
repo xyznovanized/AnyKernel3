@@ -35,6 +35,11 @@ ramdisk_compression=auto;
 # import patching functions/variables - see for reference
 . tools/ak3-core.sh;
 
+# Mount partitions as rw
+mount /system;
+mount /vendor;
+mount -o remount,rw /system;
+mount -o remount,rw /vendor;
 
 ## AnyKernel file attributes
 # set permissions/ownership for included ramdisk files
