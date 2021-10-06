@@ -50,6 +50,11 @@ set_perm_recursive 0 0 750 750 $ramdisk/init* $ramdisk/sbin;
 ## AnyKernel boot install
 dump_boot;
 
+# Force DT2W Enabler
+write /sys/kernel/touchpanel/dclicknode 1
+write /proc/tpd_gesture 1
+write /proc/touchpanel/double_tap_enable 1
+
 # begin ramdisk changes
 
 #Remove old kernel stuffs from ramdisk
