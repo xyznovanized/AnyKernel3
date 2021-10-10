@@ -16,7 +16,6 @@ do.modules=0
 do.systemless=1
 do.cleanup=1
 do.cleanuponabort=0
-do.dt2w=1
 device.name1=X00TD
 device.name2=X00T
 device.name3=Zenfone Max Pro M1 (X00TD)
@@ -49,15 +48,16 @@ dump_boot;
 
 #Remove old kernel stuffs from ramdisk
 rm -rf $ramdisk/init.special_power.sh
- rm -rf $ramdisk/init.darkonah.rc
- rm -rf $ramdisk/init.spectrum.rc
- rm -rf $ramdisk/init.spectrum.sh
- rm -rf $ramdisk/init.boost.rc
- rm -rf $ramdisk/init.trb.rc
- rm -rf $ramdisk/init.azure.rc
- rm -rf $ramdisk/init.PBH.rc
- rm -rf $ramdisk/init.Pbh.rc
- rm -rf $ramdisk/init.overdose.rc
+rm -rf $ramdisk/init.darkonah.rc
+rm -rf $ramdisk/init.spectrum.rc
+rm -rf $ramdisk/init.spectrum.sh
+rm -rf $ramdisk/init.boost.rc
+rm -rf $ramdisk/init.trb.rc
+rm -rf $ramdisk/init.azure.rc
+rm -rf $ramdisk/init.PBH.rc
+rm -rf $ramdisk/init.Pbh.rc
+rm -rf $ramdisk/init.overdose.rc
+rm -rf $ramdisk/init.forcedt2w.rc
 
 # init.rc
 backup_file init.rc;
