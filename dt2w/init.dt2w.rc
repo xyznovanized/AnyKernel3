@@ -1,0 +1,11 @@
+#!/system/bin/sh
+
+on boot
+    write /sys/kernel/touchpanel/dclicknode 1
+    write /proc/tpd_gesture 1
+    write /proc/touchpanel/double_tap_enable 1
+
+on property:sys.boot_completed=1
+    write /sys/kernel/touchpanel/dclicknode 1
+    write /proc/tpd_gesture 1
+    write /proc/touchpanel/double_tap_enable 1

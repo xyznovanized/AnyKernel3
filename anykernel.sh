@@ -16,6 +16,7 @@ do.modules=0
 do.systemless=1
 do.cleanup=1
 do.cleanuponabort=0
+do.dt2w=1
 device.name1=X00TD
 device.name2=X00T
 device.name3=Zenfone Max Pro M1 (X00TD)
@@ -35,12 +36,6 @@ ramdisk_compression=auto;
 # import patching functions/variables - see for reference
 . tools/ak3-core.sh;
 
-# Mount partitions as rw
-mount /system;
-mount /vendor;
-mount -o remount,rw /system;
-mount -o remount,rw /vendor;
-
 ## AnyKernel file attributes
 # set permissions/ownership for included ramdisk files
 set_perm_recursive 0 0 755 644 $ramdisk/*;
@@ -49,11 +44,6 @@ set_perm_recursive 0 0 750 750 $ramdisk/init* $ramdisk/sbin;
 
 ## AnyKernel boot install
 dump_boot;
-
-# Force DT2W Enabler
-write /sys/kernel/touchpanel/dclicknode 1
-write /proc/tpd_gesture 1
-write /proc/touchpanel/double_tap_enable 1
 
 # begin ramdisk changes
 
