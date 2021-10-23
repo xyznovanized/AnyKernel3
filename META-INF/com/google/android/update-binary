@@ -444,7 +444,6 @@ $BB mount -o rw,remount -t auto /vendor 2>/dev/null;
     grep "import /vendor/etc/init/hw/init.dt2w.rc" /vendor/etc/init/hw/init.qcom.rc >/dev/null || sed -i '1,/.*import.*/s/.*import.*/import \/vendor\/etc\/init\/hw\/init.dt2w.rc\n&/' /vendor/etc/init/hw/init.qcom.rc
 	cp -af $AKHOME/tools/dt2w /vendor/etc/init/hw/init.dt2w.rc
     chmod -R 644 /vendor/etc/init/hw/init.dt2w.rc
-ui_print "- Done";
 }
 
 show_progress 1.34 4;
@@ -525,8 +524,7 @@ fi;
 
 do_modules;
 
-# custom script for add spectrum support to kernel
-AddSpectrum;
+# custom script for add dt2w support to kernel
 dt2w_support;
 
 debugging;
