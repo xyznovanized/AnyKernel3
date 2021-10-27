@@ -6,7 +6,7 @@
 properties() { '
 kernel.string=ElasticsPerf
 kernel.for=P-WIFI Drivers
-kernel.compiler=Elastics clang version 14.0.0
+kernel.compiler=Elastics Toolchain
 kernel.made=@ben863
 kernel.version=4.4.xxx
 message.word=Suit-Suit... He-He...
@@ -21,7 +21,7 @@ device.name2=X00T
 device.name3=Zenfone Max Pro M1 (X00TD)
 device.name4=ASUS_X00TD
 device.name5=ASUS_X00T
-supported.versions=8.1.0-12.0
+supported.versions=8.1.0-13.0
 supported.patchlevels=
 '; } # end properties
 
