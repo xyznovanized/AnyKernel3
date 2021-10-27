@@ -435,9 +435,9 @@ dt2w_support() {
 $BB mount -o rw,remount -t auto /system;
 $BB mount -o rw,remount -t auto /vendor 2>/dev/null;
 
-  # Push dt2w support  
+  # Patch dt2w support  
     ui_print " ";
-    ui_print "Pushing DT2W Support.... ";
+    ui_print "Patching DT2W Support.... ";
     ui_print " ";
     grep "import /init.dt2w.rc" /vendor/etc/init/hw/init.qcom.rc >/dev/null | sed -i '/import \/init.dt2w.rc/d' /vendor/etc/init/hw/init.qcom.rc
     grep "import init.dt2w.rc" /vendor/etc/init/hw/init.qcom.rc >/dev/null | sed -i '/import init.dt2w.rc/d' /vendor/etc/init/hw/init.qcom.rc
@@ -533,6 +533,6 @@ if [ "$(file_getprop anykernel.sh do.cleanup)" == 1 ]; then
   cleanup;
 fi;
 
-ui_print "- Done";
+ui_print "Patching Done !";
 ui_print " " "_________________________________________________";
 ui_print " " "$MESSAGE_WORD" "_________________________________________________" " ";
