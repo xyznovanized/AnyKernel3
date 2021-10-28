@@ -533,6 +533,6 @@ if [ "$(file_getprop anykernel.sh do.cleanup)" == 1 ]; then
   cleanup;
 fi;
 
-ui_print "Patching Done !";
+ui_print "- Done !";
 ui_print " " "_________________________________________________";
 ui_print " " "$MESSAGE_WORD" "_________________________________________________" " ";
