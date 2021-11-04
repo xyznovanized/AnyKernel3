@@ -494,7 +494,7 @@ ui_print "-- Variant        : $KERNEL_FOR";
 ui_print "-- Compiler       : $KERNEL_COMPILER";
 ui_print "-- Device         : $DEVICE_NAME";
 ui_print "-- Manufacturer   : $MANUFACTURER";
-ui_print "-- Build by       : $KERNEL_MADE";
+ui_print "-- Maintainer       : $KERNEL_MADE";
 ui_print "_________________________________________________" " ";
 if [ -f version ]; then
   ui_print " ";
