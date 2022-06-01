@@ -492,7 +492,7 @@ ui_print "_________________________________________________" " ";
 ui_print "-- Kernel Name    : $KERNEL_STRING";
 ui_print "-- Kernel Version : $KERNEL_VERSION";
 ui_print "-- Variant        : $KERNEL_FOR";
-ui_print "-- Compiler       : $KERNEL_COMPILER";
+ui_print "-- Toolchains     : $KERNEL_COMPILER";
 ui_print "-- Device         : $DEVICE_NAME";
 ui_print "-- Manufacturer   : $MANUFACTURER";
 ui_print "-- Maintainer     : $KERNEL_MADE";
