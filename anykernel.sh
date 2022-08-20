@@ -5,28 +5,28 @@
 # begin properties
 properties() { '
 kernel.string=ElasticsPerf
-kernel.for=P-WIFI Drivers
+kernel.for=AOSP/MIUI
 kernel.compiler=clang llvm
 kernel.made=ben863 (cbendot)
-kernel.version=4.4.xxx
+kernel.version=4.14.xxx
 message.word=Suit-Suit... He-He...
-manufacturer=ASUSTek Computer Inc
+manufacturer=Xiaomi Inc
 do.devicecheck=1
 do.modules=0
 do.systemless=1
 do.cleanup=1
 do.cleanuponabort=0
-device.name1=X00TD
-device.name2=X00T
-device.name3=Zenfone Max Pro M1 (X00TD)
-device.name4=ASUS_X00TD
-device.name5=ASUS_X00T
-supported.versions=8.1.0-13.0
+device.name1=ginkgo
+device.name2=willow
+device.name3=
+device.name4=
+device.name5=
+supported.versions=10.0-13.0
 supported.patchlevels=
 '; } # end properties
 
 # shell variables
-block=/dev/block/bootdevice/by-name/boot;
+block=/dev/block/platform/omap/omap_hsmmc.0/by-name/boot;
 is_slot_device=0;
 ramdisk_compression=auto;
 patch_vbmeta_flag=auto;
@@ -47,29 +47,8 @@ dump_boot;
 
 # begin ramdisk changes
 
-#Remove old kernel stuffs from ramdisk
-rm -rf $ramdisk/init.special_power.sh
-rm -rf $ramdisk/init.darkonah.rc
-rm -rf $ramdisk/init.spectrum.rc
-rm -rf $ramdisk/init.spectrum.sh
-rm -rf $ramdisk/init.boost.rc
-rm -rf $ramdisk/init.trb.rc
-rm -rf $ramdisk/init.azure.rc
-rm -rf $ramdisk/init.PBH.rc
-rm -rf $ramdisk/init.Pbh.rc
-rm -rf $ramdisk/init.overdose.rc
-rm -rf $ramdisk/init.forcedt2w.rc
-
 # init.rc
 backup_file init.rc;
-remove_line init.rc "import /init.darkonah.rc";
-remove_line init.rc "import /init.spectrum.rc";
-remove_line init.rc "import /init.boost.rc";
-remove_line init.rc "import /init.trb.rc"
-remove_line init.rc "import /init.azure.rc"
-remove_line init.rc "import /init.PbH.rc"
-remove_line init.rc "import /init.Pbh.rc"
-remove_line init.rc "import /init.overdose.rc"
 replace_string init.rc "cpuctl cpu,timer_slack" "mount cgroup none /dev/cpuctl cpu" "mount cgroup none /dev/cpuctl cpu,timer_slack";
 
 # init.tuna.rc
