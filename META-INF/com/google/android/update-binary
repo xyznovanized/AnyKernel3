@@ -472,7 +472,7 @@ KERNEL_MADE="$(file_getprop anykernel.sh kernel.made)";
 KERNEL_VERSION="$(file_getprop anykernel.sh kernel.version)";
 MANUFACTURER="$(file_getprop anykernel.sh manufacturer)";
 MESSAGE_WORD="$(file_getprop anykernel.sh message.word)";
-DEVICE_NAME="$(file_getprop anykernel.sh device.name3)";
+DEVICE_NAME="$(file_getprop anykernel.sh device.name1)";
 ui_print "_________________________________________________" " ";
 ui_print "-- Kernel Name    : $KERNEL_STRING";
 ui_print "-- Kernel Version : $KERNEL_VERSION";
@@ -510,15 +510,13 @@ fi;
 
 do_modules;
 
-# custom script for add support to kernel
-# dt2w_support;
-
 debugging;
 restore_env;
+
 if [ "$(file_getprop anykernel.sh do.cleanup)" == 1 ]; then
   cleanup;
 fi;
 
-ui_print "- Done !";
+ui_print " " "Done!";
 ui_print " " "_________________________________________________";
 ui_print " " "$MESSAGE_WORD" "_________________________________________________" " ";
