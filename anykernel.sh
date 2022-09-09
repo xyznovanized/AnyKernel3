@@ -6,7 +6,7 @@
 properties() { '
 kernel.string=ElasticsPerf
 kernel.for=P-WIFI Drivers
-kernel.compiler=clang llvm
+kernel.compiler=clang 14.0.2
 kernel.made=ben863 (cbendot)
 kernel.version=4.4.xxx
 message.word=Suit-Suit... He-He...
