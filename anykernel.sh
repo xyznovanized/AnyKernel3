@@ -4,11 +4,11 @@
 ## AnyKernel setup
 # begin properties
 properties() { '
-kernel.string=ProjectSkyNova Kernel
-kernel.for=MIUI
+kernel.string=ProjectLynn Kernel
+kernel.for=AOSP
 kernel.compiler=clang 14.0.2
 kernel.made=RealNova/Lynn
-kernel.version=4.14
+kernel.version=4.14.301
 message.word=Kernel flashed successfully
 manufacturer=Xiaomi Inc
 do.devicecheck=1
